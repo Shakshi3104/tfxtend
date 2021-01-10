@@ -47,6 +47,8 @@ exp.end()
 
 ## Plot Keras Model
 
+Customized version of tensorflow.keras.utils.plot_model. Original is [tf.kerasのplot_modelをカスタマイズして情報量を増やしてみた](https://qiita.com/T-STAR/items/f3adf908a7be8e5731ff).
+
 ```python
 plot_model(model, to_file="model.png", show_shapes=True, show_layer_names=True)
 ```
