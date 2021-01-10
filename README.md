@@ -4,7 +4,7 @@ TensorFlow Extension Tools (**tfxtend**)
 
 This is the tools of TensorFlow, Scikit-Learn, Hyperdash, and Plotly for me.
 
-## For Keras
+## Keras Callbacks
 
 Callbacks of metrics (such as confusion matrix, f-measure and softmax values)
 
@@ -44,6 +44,16 @@ stack = model.fit(x_train, y_train, batch_size=batch, epochs=epochs,
                   callbacks=[hd_callbacks])
 exp.end()
 ```
+
+## Plot Keras Model
+
+```python
+plot_model(model, to_file="model.png", show_shapes=True, show_layer_names=True)
+```
+
+A running example is [this Google Colab notebook](https://colab.research.google.com/drive/1nPVc1BXSwCqwhDtlULyYMteGHEZNNTpQ?usp=sharing).
+
+
 
 ## API reference
 
