@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from tensorflow.keras.callbacks import Callback
-from metrics import confusion_error_matrix, f_measure
+from ... import metrics
 
 
 # Confusion Matrixを記録する
@@ -29,7 +29,7 @@ class ConfusionMatrixLogger(Callback):
         if (epoch + 1) % self.period == 0:
             predict = self.model.predict(self.x_test)
             predict = np.argmax(predict, axis=1)
-            cf = confusion_error_matrix(predict, self.y_test, target_names=self.label_list)
+            cf = metrics.confusion_error_matrix(predict, self.y_test, target_names=self.label_list)
             if self.filedir is not None:
                 cf.to_csv(self.filedir + "confusion_matrix_{}.csv".format(epoch + 1))
             elif self.filepath is not None:
@@ -65,7 +65,7 @@ class FMeasureLogger(Callback):
             predict = self.model.predict(self.x_test)
             predict = np.argmax(predict, axis=1)
 
-            df = f_measure(self.y_test, predict, self.label_list, output_dict=False)
+            df = metrics.f_measure(self.y_test, predict, self.label_list, output_dict=False)
 
             if self.filedir is not None:
                 df.to_csv(self.filedir + "f-measure_{}.csv".format(epoch + 1))
