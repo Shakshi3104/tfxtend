@@ -92,16 +92,16 @@ class SeabornColorPalette:
 
 
     @classmethod
-    def to_plotly_rgb(cls, colorpalette, num_color):
-        palette = sns.color_palette(colorpalette, num_color)
+    def to_plotly_rgb(cls, colorpallet, num_color):
+        palette = sns.color_palette(colorpallet, num_color)
         rgb = ['rgb({},{},{})'.format(*[int(x * 256) for x in rgb])
                for rgb in palette]
         return rgb
 
 
-def plotly_boxplot(data, x, y, pallete='Pastel1', title=None, width=1200, height=700, showmeans=False, dark=False):
+def plotly_boxplot(data, x, y, pallet='Pastel1', title=None, width=1200, height=700, showmeans=False, dark=False):
     x_list = data[x].unique()
-    color = SeabornColorPalette.to_plotly_rgb(colorpalette=pallete, n_colors=len(x_list))
+    color = SeabornColorPalette.to_plotly_rgb(colorpallet=pallet, num_color=len(x_list))
 
     if dark:
         template = "plotly_dark"
@@ -165,7 +165,7 @@ def plotly_multi_boxplot(data, x, y, hue, pallet='Pastel1', title=None, width=12
 
     trace_list = []
 
-    color = SeabornColorPalette.to_plotly_rgb(colorpalette=pallete, n_colors=len(x_list))
+    color = SeabornColorPalette.to_plotly_rgb(colorpallet=pallet, num_color=len(hue_list))
 
     for index, hue_ in enumerate(hue_list):
         data_ = data[data[hue] == hue_]

@@ -130,8 +130,10 @@ converter `seaborn`'s color palette to `plotly` rgb format
 - rgb: `list`: list of `plotly` rgb format
 
 ### tfxtend.plotting.plotly.plotly_boxplot
+
 ```python
-tfxtend.plotting.plotly.plotly_boxplot(data, x, y, pallete='Pastel1', title=None, width=1200, height=700, showmeans=False, dark=False)
+tfxtend.plotting.plotly.plotly_boxplot(data, x, y, pallet='Pastel1', title=None, width=1200, height=700,
+                                       showmeans=False, dark=False)
 ```
 
 Boxplot using Plotly
